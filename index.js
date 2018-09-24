@@ -510,5 +510,4 @@ client.on('guildMemberAdd', member => {
          }//jackeo جاكيو
  });//jackeo جاكيو
 
-
-client.login('NDg3NjIwODkwMzczMTI4MTky.DnydAg.iyLmJcIUGVvkASyUuUA-8hBhWVQ');
+client.login(process.env.BOT_TOKEN);
