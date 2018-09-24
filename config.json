@@ -1,0 +1,9 @@
+
+
+{
+  "token" : "Bot token goes here",
+  "ms" : 1500,
+  "roleToDisco" : ["R>"],
+ 
+  "allowedUsers" : ["326099411853901824", "326099411853901824"]
+}
