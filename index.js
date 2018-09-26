@@ -232,7 +232,7 @@ MEGA : __${sw[MEGA.guild.id].msk}__`)
         fs.writeFile("./setwlc.json", JSON.stringify(sw), (err) => {
         if (err) console.error(err)
 });
-})
+
 
 
 
