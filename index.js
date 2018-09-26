@@ -216,8 +216,6 @@ client.on('message', message => {
 /////
 
 
-const moment = require('moment');
-
  
 client.on('guildMemberAdd', member => {
      const welcomer =  member.guild.channels.find('name', 'chat');
