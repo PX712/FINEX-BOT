@@ -69,8 +69,8 @@ if (message.content === prefix + "cmute") {
 
 
 });
-/////
-////////
+
+
 var ss = 0;
  
 client.on('voiceStateUpdate', (o,n) => {// فويس اون لاين يا باث
@@ -97,8 +97,11 @@ client.on("ready", () => {
         })
     });
 });
-/////////الرابط يا باث////////////////
-//
+
+/////////
+
+
+
 client.on('message', message => {
     if (message.content.startsWith("رابط")) {
         if (message.author.bot) return
@@ -124,6 +127,9 @@ client.on('message', message => {
       message.author.sendEmbed(Embed11)
     }
 });
+ 
+ 
+ 
 client.on('message', message => {
     if (message.content.startsWith("الرابط")) {
         if (message.author.bot) return
@@ -149,6 +155,12 @@ client.on('message', message => {
       message.author.sendEmbed(Embed11)
     }
 });
+ 
+ 
+ 
+ 
+ 
+ 
 client.on('message', message => {
     if (message.content.startsWith("رابط السيرفر")) {
         if (message.author.bot) return
@@ -174,6 +186,8 @@ client.on('message', message => {
       message.author.sendEmbed(Embed11)
     }
 });
+ 
+ 
 client.on('message', message => {
     if (message.content.startsWith("link")) {
         if (message.author.bot) return
@@ -199,8 +213,6 @@ client.on('message', message => {
       message.author.sendEmbed(Embed11)
     }
 });
-//////////////////////////////////////
-
 
 
 client.login(process.env.BOT_TOKEN);
