@@ -82,7 +82,6 @@ if (message.content === prefix + "cmute") {
     m.send({ embed: bc })
     msg.delete();
     })
-    })
     reaction2.on("collect", r => {
     message.channel.send(`**Broadcast Canceled.**`).then(m => m.delete(5000));
     msg.delete();
