@@ -46,7 +46,7 @@ client.on('ready', function(){
     }, ms);
 
 })
-
+/////////////////////الأكواد///////////////////////////
 client.on('message', message => {// ميوت للروم يا باث.
 
 
@@ -69,33 +69,7 @@ if (message.content === prefix + "cmute") {
 
 
 });
-
-
-
-
- client.on('message', message => {// برودكاست
-	    var prefix = "!";
-              if(!message.channel.guild) return;
-    if(message.content.startsWith(prefix + 'bc')) {
-    if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-  if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
-    let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-    let copy = "CJ Bot";
-    let request = `Requested By ${message.author.username}`;
-    if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
-    msg.react('✅')
-    .then(() => msg.react('❌'))
-    .then(() =>msg.react('✅'))
-    
-    let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
-    let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
-    
-    let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
-    let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
- reaction1.on("collect", r => {
-    message.channel.send(`**☑ | Done ... The Broadcast Message Has Been Sent For __${message.guild.members.size}__ Members**`).then(m => m.delete(5000));
-    message.guild.members.forEach(m => {
-  
+/////
   var bc = new
        Discord.RichEmbed()
        .setColor('RANDOM')
@@ -116,7 +90,7 @@ if (message.content === prefix + "cmute") {
     })
     }
     });
-
+////////
 
 
 
@@ -146,15 +120,15 @@ client.on("ready", () => {
         })
     });
 });
-
-
+/////////الرابط يا باث////////////////
+//
 client.on('message', message => {
-     if (message.author.bot) return;
     if (message.content.startsWith("رابط")) {
+        if (message.author.bot) return
         message.channel.createInvite({
         thing: true,
-        maxUses: 100,
-        maxAge: 10800,
+        maxUses: 5,
+        maxAge: 1,
     }).then(invite =>
       message.author.sendMessage(invite.url)
     )
@@ -164,16 +138,202 @@ client.on('message', message => {
            .setAuthor(client.user.username, client.user.avatarURL)
                  .setAuthor(client.user.username, client.user.avatarURL)
                 .setFooter('طلب بواسطة: ' + message.author.tag)
-
+ 
       message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
               const Embed11 = new Discord.RichEmbed()
         .setColor("RANDOM")
-
-    .setDescription(" مدة الرابط : 3 ساعات  عدد استخدامات الرابط : 100 ")
+ 
+    .setDescription(" مدة الرابط :  24 ساعه فقط  عدد استخدامات الرابط : 5 ")
       message.author.sendEmbed(Embed11)
     }
+});
+client.on('message', message => {
+    if (message.content.startsWith("الرابط")) {
+        if (message.author.bot) return
+        message.channel.createInvite({
+        thing: true,
+        maxUses: 5,
+        maxAge: 1,
+    }).then(invite =>
+      message.author.sendMessage(invite.url)
+    )
+    const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+          .setDescription(" تم ارسال الرابط في الخاص :link: ")
+           .setAuthor(client.user.username, client.user.avatarURL)
+                 .setAuthor(client.user.username, client.user.avatarURL)
+                .setFooter('طلب بواسطة: ' + message.author.tag)
+ 
+      message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
+              const Embed11 = new Discord.RichEmbed()
+        .setColor("RANDOM")
+ 
+    .setDescription(" مدة الرابط :  24 ساعه فقط  عدد استخدامات الرابط : 5 ")
+      message.author.sendEmbed(Embed11)
+    }
+});
+client.on('message', message => {
+    if (message.content.startsWith("رابط السيرفر")) {
+        if (message.author.bot) return
+        message.channel.createInvite({
+        thing: true,
+        maxUses: 5,
+        maxAge: 1,
+    }).then(invite =>
+      message.author.sendMessage(invite.url)
+    )
+    const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+          .setDescription(" تم ارسال الرابط في الخاص :link: ")
+           .setAuthor(client.user.username, client.user.avatarURL)
+                 .setAuthor(client.user.username, client.user.avatarURL)
+                .setFooter('طلب بواسطة: ' + message.author.tag)
+ 
+      message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
+              const Embed11 = new Discord.RichEmbed()
+        .setColor("RANDOM")
+ 
+    .setDescription(" مدة الرابط :  24 ساعه فقط  عدد استخدامات الرابط : 5 ")
+      message.author.sendEmbed(Embed11)
+    }
+});
+client.on('message', message => {
+    if (message.content.startsWith("link")) {
+        if (message.author.bot) return
+        message.channel.createInvite({
+        thing: true,
+        maxUses: 5,
+        maxAge: 1,
+    }).then(invite =>
+      message.author.sendMessage(invite.url)
+    )
+    const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+          .setDescription(" تم ارسال الرابط في الخاص :link: ")
+           .setAuthor(client.user.username, client.user.avatarURL)
+                 .setAuthor(client.user.username, client.user.avatarURL)
+                .setFooter('طلب بواسطة: ' + message.author.tag)
+ 
+      message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
+              const Embed11 = new Discord.RichEmbed()
+        .setColor("RANDOM")
+ 
+    .setDescription(" مدة الرابط :  24 ساعه فقط  عدد استخدامات الرابط : 5 ")
+      message.author.sendEmbed(Embed11)
+    }
+});
+//////////////////////////////////////
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const fs = require('fs');
+const moment = require('moment');
+const jimp = require('jimp');
+const Canvas = require('canvas');
+ 
+client.on('guildMemberAdd', member => {
+     const welcomer =  member.guild.channels.find('name', 'chat');
+const w = ['./w1.png'];
+ 
+         let Image = Canvas.Image,
+            canvas = new Canvas(400, 200),
+            ctx = canvas.getContext('2d');
+        fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Background) {
+            if (err) return console.log(err);
+            let BG = Canvas.Image;
+            let ground = new Image;
+            ground.src = Background;
+            ctx.drawImage(ground, 0, 0, 400, 200);
+             
+         
+ 
+                let url = member.user.displayAvatarURL.endsWith(".webp") ? member.user.displayAvatarURL.slice(100) + "https://cdn.pg.sa/fWSvzEAGu9.png" : member.user.displayAvatarURL;
+                jimp.read(url, (err, ava) => {
+                    if (err) return console.log(err);
+                    ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
+                        if (err) return console.log(err);
+                       
+                        ctx.font = "bold 12px Arial";
+                        ctx.fontSize = '20px';
+                        ctx.fillStyle = "#f1f1f1";
+                        ctx.textAlign = "center";
+                        ctx.fillText(`welcome to FINEX`, 300, 130);
+                       
+                        ctx.font = "bold 12px Arial";
+                        ctx.fontSize = '20px';
+                        ctx.fillStyle = "#f1f1f1";
+                        ctx.textAlign = "center";
+                        ctx.fillText(member.user.username, 200, 150);
+ 
+                let Avatar = Canvas.Image;
+                              let ava = new Avatar;
+                              ava.src = buf;
+                              ctx.beginPath();
+                              ctx.arc(77, 101, 62, 0, Math.PI*2);
+                              ctx.stroke();
+                                 ctx.clip();
+                                 ctx.drawImage(ava, 13, 38, 128, 126);  
+                         
+               
+                             
+welcomer.sendFile(canvas.toBuffer())
+ 
+ 
+ 
+     
+     
+                    }  )  
+     
+                   
+ 
+})
+      });                    
+});
+var dat = JSON.parse("{}");
+function forEachObject(obj, func) {
+    Object.keys(obj).forEach(function (key) { func(key, obj[key]) });
+}
+client.on("ready", () => {
+    var guild;
+    while (!guild)
+        guild = client.guilds.get("423857340173910017");
+    guild.fetchInvites().then((data) => {
+        data.forEach((Invite, key, map) => {
+            var Inv = Invite.code;
+            dat[Inv] = Invite.uses;
+        });
+    });
+});
+ 
+ 
+ 
+client.on("guildMemberAdd", (member) => {
+    let channel = member.guild.channels.get("423929653569257487");
+    if (!channel) {
+        console.log("!the channel id it's not correct");
+        return;
+    }
+    if (member.id == client.user.id) {
+        return;
+    }
+    console.log('-');
+    var guild;
+    while (!guild)
+        guild = client.guilds.get("423857340173910017");
+    guild.fetchInvites().then((data) => {
+        data.forEach((Invite, key, map) => {
+            var Inv = Invite.code;
+            if (dat[Inv])
+                if (dat[Inv] < Invite.uses) {
+                    setTimeout(function() {
+ channel.send(`**invited by** ${Invite.inviter} `) ;
+                    },1500);
+ }
+            dat[Inv] = Invite.uses;
+       
+       });
+    });
 });
 
 
 
-client.login(process.env.BOT_TOKEN);
+client.login('NDg3NjIwODkwMzczMTI4MTky.DnydAg.iyLmJcIUGVvkASyUuUA-8hBhWVQ');
