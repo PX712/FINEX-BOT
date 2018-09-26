@@ -116,7 +116,7 @@ if (message.content === prefix + "cmute") {
     })
     }
     });
-
+});
 
 
 
@@ -146,27 +146,10 @@ client.on("ready", () => {
         })
     });
 });
+  
 
 
-
-var botid = ["487620890373128192"];
-   client.on('message', message => {
-       if(message.content.startsWith(`${prefix}invite`)){
-           if(!message.channel.guild) return message.channel.send("This Command is Just For Servers!")
-           var embed = new Discord.RichEmbed()
-           .setTitle("Invite Me !.")
-           .setURL(`https://discordapp.com/oauth2/authorize/?permissions=8&scope=bot&client_id=${botid}`)
-           .setTimestamp()
-           .setColor("RANDOM")
-           message.channel.send({embed})
-       }
-   });
-
-   
-
-
-
-
+  
 client.on('message', message => {
      if (message.author.bot) return;
     if (message.content.startsWith("رابط")) {
@@ -194,6 +177,50 @@ client.on('message', message => {
 });
 
 
+
+
+
+var dat = JSON.parse("{}");
+function forEachObject(obj, func) {
+    Object.keys(obj).forEach(function (key) { func(key, obj[key]) })
+}
+client.on("ready", () => {
+    var guild;
+    while (!guild)
+        guild = client.guilds.find("name", "FINEX")
+    guild.fetchInvites().then((data) => {
+        data.forEach((Invite, key, map) => {
+            var Inv = Invite.code;
+            dat[Inv] = Invite.uses;
+        })
+    })
+})
+client.on("guildMemberAdd", (member) => {
+    let channel = member.guild.channels.find('name', 'chat');
+    if (!channel) {
+        console.log("!channel fails");
+        return;
+    }
+    if (member.id == client.user.id) {
+        return;
+    }
+    console.log('made it till here!');
+    var guild;
+    while (!guild)
+        guild = client.guilds.find("name", FINEX")
+    guild.fetchInvites().then((data) => {
+        data.forEach((Invite, key, map) => {
+            var Inv = Invite.code;
+            if (dat[Inv])
+                if (dat[Inv] < Invite.uses) {
+                    console.log(3);
+                    console.log(`${member} joined over ${Invite.inviter}'s invite ${Invite.code}`)
+ channel.send(` ♥ **تم دعوته من قبل ${Invite.inviter} ♥ `)            
+ }
+            dat[Inv] = Invite.uses;
+        })
+    })
+});
 
 
    
