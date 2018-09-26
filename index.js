@@ -192,24 +192,40 @@ client.on('message', message => {
       message.author.sendEmbed(Embed11)
     }
 });
-
-client.on('guildMemberAdd', Sal => { //By Salto7#4595
-    var embed = new Discord.RichEmbed()
-    .setAuthor(Sal.user.username, Sal.user.avatarURL)
-    .setThumbnail(Sal.user.avatarURL)
-    .setImage('http://live-timely-4jepdssgmc.time.ly/wp-content/uploads/2018/08/welcomeEvents.jpg') //هنا حط الصوره الي تبيها
-    .setTitle('عضو جديد!')
-    .setDescription('مرحبا بك بالسيرفر')
-    .addField('``ايدي العضو``:',"" +  Sal.user.id, true)
-    .addField('``تاق العضو``', Sal.user.discriminator, true)
-    .addField('``تم الانشاء في``', Sal.user.createdAt, true)
-    .addField(' 👤  انت رقم',`**[ ${Sal.guild.memberCount} ]**`,true)
-    .setColor('RANDOM')
-    .setFooter(Sal.guild.name, Sal.guild.iconURL, true)
-    var channel =Sal.guild.channels.find('chat', 'welcome') // هنا حط اسم الروم الي تبيه يكتب فيه
-    if (!channel) return;
-    channel.send({embed : embed});
-    });
+client.on('message', message => {
+        if (message.author.id === client.user.id) return;
+        if (message.guild) {
+       let embed = new Discord.RichEmbed()
+        let args = message.content.split(' ').slice(1).join(' ');
+    if(message.content.split(' ')[0] == prefix + 'bcc') {
+        if (!args[1]) {
+    message.channel.send("**.bc <message>**");
+    return;
+    }
+            message.guild.members.forEach(m => {
+       if(!message.member.hasPermission('ADMINISTRATOR')) return;
+                var bc = new Discord.RichEmbed()
+                .setAuthor(message.author.username, message.author.avatarURL)
+                .addField('** الـسيرفر**', `${message.guild.name}`,true)
+                .addField(' **الـمرسل **', `${message.author.username}#${message.author.discriminator}`,true)
+                .addField(' **الرسالة** ', args)
+                .setThumbnail(message.guild.iconURL)
+                .setColor('RANDOM')
+                m.send(`${m}`,{embed: bc});
+            });
+            const AziRo = new Discord.RichEmbed()
+            .setAuthor(message.author.username, message.author.avatarURL)   
+            .setTitle('✔️ | جاري ارسال رسالتك ') 
+            .addBlankField(true)
+            .addField('👥 | عدد الاعضاء المرسل لهم ', message.guild.memberCount , true)        
+            .addField('📋| الرسالة ', args)
+            .setColor('RANDOM')  
+            message.channel.sendEmbed(AziRo);          
+        }
+        } else {
+            return;
+        }
+});
 
 
 client.login(process.env.BOT_TOKEN);
