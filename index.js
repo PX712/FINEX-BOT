@@ -70,25 +70,6 @@ if (message.content === prefix + "cmute") {
 
 });
 /////
-  var bc = new
-       Discord.RichEmbed()
-       .setColor('RANDOM')
-       .setTitle('Broadcast')
-       .addField('سيرفر', message.guild.name)
-       .addField('المرسل', message.author.username)
-       .addField('الرسالة', args)
-       .setThumbnail(message.author.avatarURL)
-       .setFooter(copy, client.user.avatarURL);
-    m.send({ embed: bc })
-    msg.delete();
-    })
-    reaction2.on("collect", r => {
-    message.channel.send(`**Broadcast Canceled.**`).then(m => m.delete(5000));
-    msg.delete();
-    })
-    })
-    }
-    });
 ////////
 var ss = 0;
  
