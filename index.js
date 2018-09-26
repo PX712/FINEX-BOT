@@ -221,11 +221,8 @@ client.on("guildMemberAdd", (member) => {
         })
     })
 });
-});
 
 
-
-//
    
 
 
