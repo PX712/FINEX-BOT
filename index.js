@@ -150,7 +150,7 @@ client.on("ready", () => {
 
 client.on('message', message => {
      if (message.author.bot) return;
-    if (message.content.startsWith("!رابط")) {
+    if (message.content.startsWith("رابط")) {
         message.channel.createInvite({
         thing: true,
         maxUses: 100,
