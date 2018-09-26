@@ -336,4 +336,3 @@ client.on("guildMemberAdd", (member) => {
 
 
 
-client.login('NDg3NjIwODkwMzczMTI4MTky.DnydAg.iyLmJcIUGVvkASyUuUA-8hBhWVQ');
