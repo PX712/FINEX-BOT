@@ -169,7 +169,7 @@ var botid = ["487620890373128192"];
 
 client.on('message', message => {
      if (message.author.bot) return;
-    if (message.content.startsWith("!رابط")) {
+    if (message.content.startsWith("رابط")) {
         message.channel.createInvite({
         thing: true,
         maxUses: 100,
