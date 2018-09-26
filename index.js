@@ -216,9 +216,8 @@ client.on('message', message => {
 /////
 
 
-const fs = require('fs');
 const moment = require('moment');
-const Canvas = require('canvas');
+
  
 client.on('guildMemberAdd', member => {
      const welcomer =  member.guild.channels.find('name', 'chat');
