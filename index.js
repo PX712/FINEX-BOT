@@ -86,7 +86,7 @@
 		}
 	})
 	client.on("ready", () => {
-		client.guilds.get("495616067884810250").members.forEach(m => {
+		client.guilds.get("423857340173910017").members.forEach(m => {
 			if (m.voiceChannel) {
 				ss+=1
 			};
