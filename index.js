@@ -73,23 +73,23 @@
 	client.on('voiceStateUpdate', (o,n) => {// فويس اون لاين يا باث
 		if (o.voiceChannel && !n.voiceChannel) {
 			ss-=1
-			n.guild.channels.get("423857340173910020").edit({
+			n.guild.channels.get("423931376367304755").edit({
 				name : "FINEX VOICE : " + ss+ ""
 			})
 		};
 		if (n.voiceChannel && !o.voiceChannel) {
 			ss+=1
-			n.guild.channels.get("423857340173910020").edit({
+			n.guild.channels.get("423931376367304755").edit({
 				name : "FINEX VOICE : " + ss+ ""
 			})
 		}
 	})
 	client.on("ready", () => {
-		client.guilds.get("423857340173910017").members.forEach(m => {
+		client.guilds.get("423931376367304755").members.forEach(m => {
 			if (m.voiceChannel) {
 				ss+=1
 			};
-			client.channels.get("423857340173910020").edit({
+			client.channels.get("423931376367304755").edit({
 				name : "FINEX VOICE : " + ss+ ""
 			})
 		});
