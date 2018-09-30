@@ -1,7 +1,6 @@
 	const Discord = require('discord.js');
 	const client = new Discord.Client();
 	const prefix = '!'
-        client.on('error', console.error);
 
 	client.on('ready', () => {
 	  console.log(`Logged in as ${client.user.tag}!`);
@@ -212,8 +211,6 @@
 	});
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
-	
-	
 	client.on('message', message => {
 		if(!message.channel.guild) return;
  if(message.content.startsWith(prefix + 'bc')) {
@@ -261,6 +258,99 @@
  }
  });
  ///////////////////////////////////////////////////////////////////////////
+ 
+const shorten = require('isgd');
+client.on('message', message => {
+
+ if (message.content.startsWith(prefix + 'short')) {
+    let args = message.content.split(" ").slice(1);
+  if (!args[0]) return message.channel.send('**Usage**: '+ prefix +'short <رابط>')
+  if (!args[1]) { 
+    shorten.shorten(args[0], function(res) {
+      if (res.startsWith('Error:')) return message.channel.send('**Usage**: '+ prefix +'short <link>');
+      message.channel.send(`اختصار الرابط:**<${res}>**`); 
+    })
+  } else { 
+    shorten.custom(args[0], args[1], function(res) { 
+      if (res.startsWith('Error:')) return message.channel.send(`اختصار الرابط:**${res}**`); 
+      message.channel.send(`اختصار الرابط:**<${res}>**`); 
+ })}}});
+
+ 
+ 
+ 
+ /////////////////////////////
+ 
+	client.on('message', message => {
+    if (message.content === "!inv") {
+      if(!message.channel.guild) return message.reply('Sorry, i Can Not Inv My Link In Your DM ;(')
+        if(!message.channel.guild) return;
+    let embed = new Discord.RichEmbed()
+    .setAuthor(` ${message.author.username} `, message.author.avatarURL)
+    .setTitle(`:small_orange_diamond:click here `)
+    .setURL(`https://discordapp.com/api/oauth2/authorize?client_id=487620890373128192&permissions=2146958839&scope=bot`)
+    .setThumbnail("https://is.gd/yPGeUe")
+    .addField('🔹By', "<@" + message.author.id + ">")
+ message.channel.sendEmbed(embed);
+   }
+});
+///////////////////////////////////////
+client.on('message', function(msg) {
+  if(msg.content.startsWith ('!server')) {
+    if(!msg.channel.guild) return msg.reply('**:x: اسف لكن هذا الامر للسيرفرات فقط **');         
+    let embed = new Discord.RichEmbed()
+    .setColor('RANDOM')
+    .setThumbnail(msg.guild.iconURL)
+    .addField(':globe_with_meridians: **اسم السيرفر : **' , `**[ ${msg.guild.name} ]**`,true)
+    .addField(':earth_africa: ** موقع السيرفر :**',`**[ ${msg.guild.region} ]**`,true)
+    .addField(':military_medal:** الرتب :**',`**[ ${msg.guild.roles.size} ]**`,true)
+    .addField(':bust_in_silhouette:** عدد الاعضاء :**',`**[ ${msg.guild.memberCount} ]**`,true)
+    .addField(':white_check_mark:** عدد الاعضاء الاونلاين :**',`**[ ${msg.guild.members.filter(m=>m.presence.status == 'online').size} ]**`,true)
+    .addField(':pencil:** الرومات الكتابية :**',`**[ ${msg.guild.channels.filter(m => m.type === 'text').size} ]**`,true)
+    .addField(':loud_sound:** رومات الصوت :**',`**[ ${msg.guild.channels.filter(m => m.type === 'voice').size} ]**`,true)
+    .addField(':crown:** صاحب السيرفر :**',`**[ ${msg.guild.owner} ]**`,true)
+    .addField(':id:** ايدي السيرفر :**',`**[ ${msg.guild.id} ]**`,true)
+    .addField(':date:** تم عمل السيرفر في : **',msg.guild.createdAt.toLocaleString())
+    msg.channel.send({embed:embed});
+  }
+});
+//////////////////////////////////////////////////////////
+
+const moment = require('moment');
+client.on('message', message => { 
+	var prefix ="!";
+				 if (message.content.startsWith(prefix + "user")) {
+	 var args = message.content.split(" ").slice(1);
+	 let user = message.mentions.users.first();
+	 var men = message.mentions.users.first();
+			var heg;
+			if(men) {
+					heg = men
+			} else {
+					heg = message.author
+			}
+		var mentionned = message.mentions.members.first();
+			 var h;
+			if(mentionned) {
+					h = mentionned
+			} else {
+					h = message.member
+			}
+						 moment.locale('ar-TN');
+		var id = new  Discord.RichEmbed()
+		.setAuthor(message.author.username, message.author.avatarURL) 
+	.setColor("#707070")
+	.addField(': تاريخ دخولك للدسكورد', `${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} **\n** \`${moment(heg.createdTimestamp).fromNow()}\`` ,true) 
+	.addField(': تاريخ دخولك لسيرفرنا  ', `${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')} \n \`${moment(h.joinedAt).fromNow()}\``, true)               
+	.setFooter(`FX BOT`, 'https://is.gd/yPGeUe')                                 
+	.setThumbnail(heg.avatarURL);
+	message.channel.send(id)
+}       });
+///////////////////////////////////////////////
+
+
+
+///////////////////////////////////////////////////////////////////////
  
 
 
