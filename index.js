@@ -379,7 +379,7 @@ message.channel.send(args.join("  "))
 
 
 const fs = require('fs');
-const jimp = require('jimp');
+const jimp = require("jimp");
 const Canvas = require('canvas');
  
 client.on('guildMemberAdd', member => {
