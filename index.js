@@ -515,7 +515,7 @@ let welcomer = member.guild.channels.find("name","finex");
 
 
 client.on('message', function(message) {
-	const myID = "337309575864647680";
+	const myID = "326099411853901824";
     let args = message.content.split(" ").slice(1).join(" ");
     if(message.content.startsWith(prefix + "setname")) {
 		        if(message.author.id !== myID) return;
@@ -527,7 +527,7 @@ client.on('message', function(message) {
         });
     } else if(message.content.startsWith(prefix + "stream")) {
 		        if(message.author.id !== myID) return;
-            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+            if(!args) return message.reply('هاه .-.');
         client.user.setGame(args , 'https://www.twitch.tv/pythorxxx');
         message.channel.send(':white_check_mark: Done!').then(msg => {
            msg.delete(5000);
