@@ -372,22 +372,20 @@ message.channel.send(args.join("  "))
 
 
 
+client.on('guildMemberAdd', member => {
+    var embed = new Discord.RichEmbed()
+    .setAuthor(member.user.username, member.user.avatarURL)
+    .setThumbnail(member.user.avatarURL)
+    .setTitle(`عضو جديد`)
+    .setDescription(`اهلا بك في السيرفر`)
+    .addField(' :bust_in_silhouette:  انت رقم',`**[ ${member.guild.memberCount} ]**`,true)
+    .setColor('GREEN')
+    .setFooter('The King Bot', 'https://cdn.discordapp.com/icons/390551815072251904/418fa2788d8115808951c9881ba8f190.jpg')
 
-client.on("guildMemberAdd", function(member) {
-    const wc = member.guild.channels.find("name", "finex")
-        const embed = new Discord.RichEmbed()
-        .setColor('B90C0C')
-        .setAuthor(member.user.tag, member.user.avatarURL)
- .setDescription('***يا مرحبا وسهلاً بضيف لفانا، يزهي بك الأدب العربي وينثر لك أزهار يسقيك من نبع المشاعر وفانا، لين الهلا تثمر على غصونك أطيار. ***')
-.setThumbnail(member.avatarURL)
-  .setImage('https://www.askideas.com/media/13/Welcome-Deers-Sign.jpg')
-        .setTimestamp()
-        return wc.sendEmbed(embed);
-        
+var channel =member.guild.channels.find('name', 'finex')
+if (!channel) return;
+channel.send({embed : embed});
 });
-
-
-
 
 
 client.login(process.env.BOT_TOKEN);
