@@ -303,8 +303,6 @@ if(msg.content.startsWith ('!server')) {
 }
 });
 //////////////////////////////////////////////////////////
-
-const moment = require('moment');
 client.on('message', message => { 
 var prefix ="!";
 			 if (message.content.startsWith(prefix + "user")) {
