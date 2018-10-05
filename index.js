@@ -376,10 +376,10 @@ message.channel.send(args.join("  "))
 
 
 
-
-
-const fs = require('fs');
+const Discord = require('discord.js');
+ const client = new Discord.Client()
 const jimp = require("jimp");
+const fs = require('fs');
 const Canvas = require('canvas');
  
 client.on('guildMemberAdd', member => {
