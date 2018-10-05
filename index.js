@@ -304,6 +304,7 @@ if(msg.content.startsWith ('!server')) {
 });
 //////////////////////////////////////////////////////////
 
+const moment = require('moment');
 client.on('message', message => { 
 var prefix ="!";
 			 if (message.content.startsWith(prefix + "user")) {
@@ -335,25 +336,6 @@ message.channel.send(id)
 }       });
 ///////////////////////////////////////////////
 
-client.on('message', message => {
-if (message.author.bot) return;
-if (!message.content.startsWith(prefix)) return;
-
-let command = message.content.split(" ")[0];
-command = command.slice(prefix.length);
-
-let args = message.content.split(" ").slice(1);
-
-if (command == "say") {
-if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES")) return message.reply("*لا تملك الصلاحيات المطلوبه**");
-
-message.channel.send(args.join("  "))
-	message.delete();
-}
-
-
-
-});
 
 
 
@@ -419,20 +401,18 @@ client.on("message", message => {
 Please Choose:
              
 
-${prefix}bc ⇏ خاصية البرودكاست
-${prefix}bans ⇏  لمعرفة عدد المبندين في سيرفر
-${prefix}mute ⇏ لاعطاء شخص ميوت
-${prefix}ping ⇏ لمعرفة بنق البوت
+
+
+
 ${prefix}bot ⇏ لمعرفة معلومات البوت
 ${prefix}info ⇏ لمعرفة معلومات البوت
 ${prefix}server ⇏ لمعرفة معلومات السيرفر
-${prefix}server roles ⇏ لعرض كل رتب السيرفر
+${prefix}server-roles ⇏ لعرض كل رتب السيرفر
 ${prefix}invite ⇏ لدعوة البوت لسيرفرك
 ${prefix}id ⇏ لمعرفة ايدي حقك
 ${prefix}invites ⇏ check your invites
 ${prefix}user ⇏ informations about you account
-${prefix}sug ⇏ to add suggest !
-${prefix}giveaway ⇏ to create a giveaway
+
 
 
 
@@ -447,34 +427,10 @@ ${prefix}giveaway ⇏ to create a giveaway
 
 
 
-var secreT = [
-  "**الحياة بكل ما فيها تقف دائمًا على حد الوسطية بين اتزان المعنى وضده من حب وكره وحق وباطل وعدل وظلم**.",
-  "**كى تعيش عليك ان تتقن فن التجاهل باحتراف**.",
-  "**لا تحزن على من اشعرك بان طيبتك غباء امام وقاحته**.",
-  "**هناك من يحلم بالنجاح وهناك من يستيقظ باكرا لتحقيقه**.",
-  "**ان تعالج ألمك بنفسك تلك هى القوة**.", 
-  "**الجميع يسمع ما تقول والاصدقاء ينصتون لما تقول وافضل الاصدقاء ينصتون لما اخفاه سكوتك**.", 
-  "**انتهى زمن الفروسية ، لم تنقرض الخيول بل انقرض الفرسان**.", 
-  "**ان تكون اخرسا عاقلا خير من ان تكون نطوقا جهولا**.", 
-  "**المناقشات العقيمة لا تنجب افكارا**.", 
-  "**نحن نكتب ما لا نستطيع ان نقول وما نريد ان يكون**.", 
-];
 
 
 
 
- client.on('message', message => {
-   if (message.content.startsWith("!خواطر")) {
-                if(!message.channel.guild) return message.reply('** This command only for servers**');
-  var embed = new Discord.RichEmbed()
-  .setColor('RANDOM')
-   .setThumbnail(message.author.avatarURL) 
- .addField('Snow' ,
-  `${secreT[Math.floor(Math.random() * secreT.length)]}`)
-  message.channel.sendEmbed(embed);
-  console.log('[id] Send By: ' + message.author.username)
-    }
-});
 
 
 
@@ -503,7 +459,7 @@ var secreT = [
 });
 
 client.on('message', message => {
-    if (message.content === '!server roles') {
+    if (message.content === '!server-roles') {
         var roles = message.guild.roles.map(roles => `${roles.name}, `).join(' ')
         const embed = new Discord.RichEmbed()
         .setColor('RANDOM')
@@ -578,9 +534,7 @@ let welcomer = member.guild.channels.find("name","finex");
 
 
 
-      
-
-
+    
 
 
 client.on('message', (message)=>{
@@ -642,6 +596,8 @@ client.on('message', (message)=>{
 
 
 
+	
+	
 
 
 
@@ -683,4 +639,68 @@ client.on('message', message => {
 
 
 
+client.on('message', function(message) {
+	const myID = "337309575864647680";
+    let args = message.content.split(" ").slice(1).join(" ");
+    if(message.content.startsWith(prefix + "setname")) {
+		        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setUsername(args);
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "stream")) {
+		        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setGame(args , 'https://twitch.tv/6xlez1');
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "playing")) {
+				        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setGame(args);
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "listen")) {
+				        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setActivity(args, {type:'LISTENING'});
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "watch")) {
+				        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setActivity(args, {type:'WATCHING'});
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "setavatar")) {
+				        if(message.author.id !== myID) return;
+        client.user.setAvatar(args);
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+                if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    }
+});
+
+
+
+
+
+
+
+
 client.login(process.env.BOT_TOKEN);
+
+
+
