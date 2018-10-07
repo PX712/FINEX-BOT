@@ -27,7 +27,7 @@ client.on('ready', () => {
 });
 client.on('ready', function(){
 	var ms = 10000 ;
-	var setGame = [' !invite ','FINEX SERVER | FX ','BY : بايثور ','FINEX BOT','(= Hi'];
+	var setGame = [' !invite ','FINEX SERVER | FX ','BY : بايثور ','FINEX BOT','R>FX'];
 	var i = -1;
 	var j = 0;
 	setInterval(function (){
@@ -507,27 +507,6 @@ client.on('message', message => { // Leaked by [ @M3a4x ]
 
 
 
-
-const moment = require('moment');
-
-client.on("guildMemberAdd", member => {
-let welcomer = member.guild.channels.find("name","finex");
-      if(!welcomer) return;
-      if(welcomer) {
-         moment.locale('ar-ly');
-         var h = member.user;
-        let norelden = new Discord.RichEmbed()
-        .setColor('RANDOM')
-        .setThumbnail(h.avatarURL)
-        .setAuthor(h.username,h.avatarURL)
-        .addField(': تاريخ دخولك الدسكورد',`${moment(member.user.createdAt).format('D/M/YYYY h:mm a')} **\n** \`${moment(member.user.createdAt).fromNow()}\``,true)            
-         .addField(': تاريخ دخولك السيرفر',`${moment(member.joinedAt).format('D/M/YYYY h:mm a ')} \n\`\`${moment(member.joinedAt).startOf(' ').fromNow()}\`\``, true)      
-         .setFooter(`${h.tag}`,"https://cdn.discordapp.com/attachments/423929742337638410/497718782337220609/FINEX-P-2.png")
-     welcomer.send({embed:norelden});          
-               
- 
-      }
-      });
 
 
 
