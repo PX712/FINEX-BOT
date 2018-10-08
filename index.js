@@ -511,23 +511,7 @@ client.on('message', message => { // Leaked by [ @M3a4x ]
 
 
 
-    
-
-
-client.on('message', (message)=>{
-        if (message.content.startsWith(`!embed`)) {
-                var embed = new Discord.RichEmbed()
-                .setAuthor(client.user.username,client.user.avatarURL)
-                .setTitle("Message By " + message.author.tag)
-                .setDescription(message.content.split(" ").join(" ").slice(7))
-                .setColor("RANDOM")
-                .setThumbnail(message.author.avatarURL)
-                message.channel.send(embed);
-        } else if (message.content.startsWith(`!say`)) {
-                message.channel.send(message.content.split(" ").join(" ").slice(5));
-        };
-})
-
+ 
 
 
 
