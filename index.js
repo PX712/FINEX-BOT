@@ -649,4 +649,15 @@ message.channel.send(args.join("  "))
  
 
 
+
+ client.on('message', message => { // Leaked by [ @Fr3on Gamer#9338 ]
+        var  user = message.mentions.users.first() || message.author;
+    if (message.content.startsWith(prefix + "avatar")) {
+message.channel.send(`This avatar For ${user} link : ${user.avatarURL}`);
+}
+});
+
+
+
+
 client.login(process.env.BOT_TOKEN);
