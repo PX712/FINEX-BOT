@@ -674,7 +674,7 @@ message.channel.send(args.join("  "))
 
 });
 
-
+ 
 
 
 client.login(process.env.BOT_TOKEN);
