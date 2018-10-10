@@ -1884,7 +1884,13 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
    .setDescription(`تم تغير اللون بنجاح`)
   message.channel.sendEmbed(embed);
 	}
-
+	}
+  if (message.content === '!colors') {
+      if (!message.channel.guild) return;
+    message.channel.sendFile('https://cdn.discordapp.com/attachments/471320172716752916/471855805776265238/colors.png');
+  }
+	
+});
 
 
 
